@@ -20,8 +20,8 @@ export default function Footer() {
       <div className="w-full max-w-screen-xl mx-auto px-4 md:px-8">
         <div className="sm:flex sm:items-center sm:justify-between py-8">
           <a href="https://flowbite.com/" className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
-            <img src="/image/logo-lpka-w-300x94.png" className="h-8" alt="Flowbite Logo" />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap">Lkp™</span>
+            <img src="/image/logo-unismuh.png" className="h-8" alt="Flowbite Logo" />
+            <span className="self-center text-2xl font-semibold whitespace-nowrap">Lkpa™</span>
           </a>
           <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-300 sm:mb-0">
             <li>
@@ -41,7 +41,7 @@ export default function Footer() {
         <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
         <div className="flex flex-col sm:flex-row sm:justify-between items-center">
           <span className="block text-sm text-gray-300 sm:text-center">
-            © 2023 <a href="https://flowbite.com/" className="hover:underline">Lkp™</a>. All Rights Reserved.
+            © 2023 <a href="https://flowbite.com/" className="hover:underline">Lkpa™</a>. All Rights Reserved.
           </span>
           <div className="flex space-x-4 mt-4 sm:mt-0">
             <a href="#" className="text-gray-300 hover:text-white">Facebook</a>

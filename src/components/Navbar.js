@@ -6,7 +6,7 @@ export default function Navbar() {
       <div className="container mx-auto flex justify-between items-center py-4 px-6">
         <Link href="/" legacyBehavior>
           <a>
-            <img src="/image/logo-02-1.png" alt="eLearn Logo" className="h-10" />
+            <img src="/image/logo-unismuh.png" alt="eLearn Logo" className="h-10" />
           </a>
         </Link>
         <ul className="flex space-x-6">
