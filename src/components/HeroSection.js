@@ -1,100 +1,87 @@
 "use client";
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import 'flowbite';
 
 export default function HeroSection() {
   const [navbarHeight, setNavbarHeight] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      import('flowbite').then((flowbite) => {
-      });
-
+    if (typeof window !== "undefined" && typeof document !== "undefined") {
       const navbar = document.querySelector('nav');
       if (navbar) {
         setNavbarHeight(navbar.clientHeight);
       }
     }
+
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000); // Ganti slide setiap 5 detik
+
+    return () => clearInterval(interval);
   }, []);
+
+  const slides = [
+    { src: '/image/gedung_crop.png', alt: 'Deskripsi gambar 1' },
+    { src: '/image/hero2.jpg', alt: 'Deskripsi gambar 2' },
+    { src: '/image/hero1.jpg', alt: 'Deskripsi gambar 3' },
+    { src: '/image/hero2.jpg', alt: 'Deskripsi gambar 4' },
+  ];
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
 
   return (
     <div
       id="indicators-carousel"
       className="relative w-full"
-      data-carousel="static"
       style={{ paddingTop: navbarHeight }}
     >
       {/* Carousel wrapper */}
       <div className="relative h-56 md:h-96 overflow-hidden rounded-lg">
-        {/* Item 1 */}
-        <div
-          className="absolute inset-0 transition-transform duration-700 ease-in-out transform translate-x-0"
-          data-carousel-item="active"
-        >
-          <Image
-            src="/image/gedung_crop.png"
-            alt="Deskripsi gambar"
-            fill
-            sizes="(min-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            style={{ objectFit: 'cover' }}
-            priority
-          />
-        </div>
-        {/* Item 2 */}
-        <div
-          className="absolute inset-0 hidden transition-transform duration-700 ease-in-out transform translate-x-full"
-          data-carousel-item
-        >
-          <Image
-            src="/image/hero2.jpg"
-            alt="Deskripsi gambar"
-            fill
-            sizes="(min-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            style={{ objectFit: 'cover' }}
-          />
-        </div>
-        {/* Item 3 */}
-        <div
-          className="absolute inset-0 hidden transition-transform duration-700 ease-in-out transform -translate-x-full"
-          data-carousel-item
-        >
-          <Image
-            src="/image/hero1.jpg"
-            alt="Deskripsi gambar"
-            fill
-            sizes="(min-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            style={{ objectFit: 'cover' }}
-          />
-        </div>
-        {/* Item 4 */}
-        <div
-          className="absolute inset-0 hidden transition-transform duration-700 ease-in-out transform translate-x-full"
-          data-carousel-item
-        >
-          <Image
-            src="/image/hero2.jpg"
-            alt="Deskripsi gambar"
-            fill
-            sizes="(min-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            style={{ objectFit: 'cover' }}
-          />
-        </div>
+        {slides.map((slide, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out transform ${
+              index === currentSlide ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <Image
+              src={slide.src}
+              alt={slide.alt}
+              fill
+              sizes="(min-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              style={{ objectFit: 'cover' }}
+              priority={index === 0}
+            />
+          </div>
+        ))}
       </div>
       
       {/* Carousel indicators */}
       <div className="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
-        <button type="button" className="w-3 h-3 rounded-full bg-white" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-        <button type="button" className="w-3 h-3 rounded-full bg-white/50 hover:bg-white" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-        <button type="button" className="w-3 h-3 rounded-full bg-white/50 hover:bg-white" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
-        <button type="button" className="w-3 h-3 rounded-full bg-white/50 hover:bg-white" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            type="button"
+            className={`w-3 h-3 rounded-full ${index === currentSlide ? 'bg-white' : 'bg-white/50 hover:bg-white'}`}
+            aria-current={index === currentSlide}
+            aria-label={`Slide ${index + 1}`}
+            onClick={() => setCurrentSlide(index)}
+          ></button>
+        ))}
       </div>
       
       {/* Slider controls */}
       <button
         type="button"
         className="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-        data-carousel-prev
+        onClick={prevSlide}
       >
         <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
           <svg
@@ -118,7 +105,7 @@ export default function HeroSection() {
       <button
         type="button"
         className="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-        data-carousel-next
+        onClick={nextSlide}
       >
         <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
           <svg
