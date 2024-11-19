@@ -23,9 +23,9 @@ export default function HeroSection() {
 
   const slides = [
     { src: '/image/gedung_crop.png', alt: 'Deskripsi gambar 1' },
-    { src: '/image/hero2.jpg', alt: 'Deskripsi gambar 2' },
-    { src: '/image/hero1.jpg', alt: 'Deskripsi gambar 3' },
-    { src: '/image/hero2.jpg', alt: 'Deskripsi gambar 4' },
+    { src: '/image/banner1.jpeg', alt: 'Deskripsi gambar 2' },
+    { src: '/image/banner2.jpg', alt: 'Deskripsi gambar 3' },
+    { src: '/image/banner3.jpg', alt: 'Deskripsi gambar 4' },
   ];
 
   const nextSlide = () => {
@@ -43,7 +43,10 @@ export default function HeroSection() {
       style={{ paddingTop: navbarHeight }}
     >
       {/* Carousel wrapper */}
-      <div className="relative h-56 md:h-96 overflow-hidden rounded-lg">
+      <div
+        className="relative overflow-hidden rounded-lg"
+        style={{ height: '800px', width: '100%' }} // Atur ukuran di sini
+      >
         {slides.map((slide, index) => (
           <div
             key={index}
@@ -56,7 +59,7 @@ export default function HeroSection() {
               alt={slide.alt}
               fill
               sizes="(min-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              style={{ objectFit: 'cover' }}
+              style={{ objectFit: 'cover' }} // Ubah objectFit menjadi 'cover'
               priority={index === 0}
             />
           </div>
@@ -120,7 +123,7 @@ export default function HeroSection() {
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="2"
-              d="m1 9 4-4-4-4"
+              d="M1 9 5 5 1 1"
             />
           </svg>
           <span className="sr-only">Next</span>

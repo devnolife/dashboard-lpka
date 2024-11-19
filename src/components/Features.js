@@ -1,5 +1,6 @@
 "use client";
 import { useRef } from 'react';
+import Image from 'next/image';
 
 
 export default function Features() {
@@ -20,32 +21,117 @@ export default function Features() {
   };
 
   return (
-    <section className="bg-blue-100 dark:bg-gray-900 pb-20">
-      <div className="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
-        <div className="font-light text-gray-500 sm:text-lg dark:text-gray-400">
-          <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-blue-900 dark:text-white">
-            Dukungan untuk Masa Depan Cerah
-          </h2>
-          <p className="mb-4">
-            Kami berkomitmen dalam mendukung anak-anak di LPKA dan mahasiswa di Unismuh Makassar melalui berbagai program beasiswa dan kegiatan pengembangan diri. Kami bekerja sama dengan para pendidik, ahli, dan mitra strategis untuk membina generasi masa depan.
-          </p>
-          <p>
-            Dengan dukungan dari para donatur dan institusi, kami membuka kesempatan bagi mereka yang ingin belajar dan berkembang. Bersama-sama, kita membangun masa depan yang lebih baik.
-          </p>
-        </div>
-        <div className="grid grid-cols-2 gap-4 mt-8">
-          <img
-            className="w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png"
-            alt="konten kantor 1"
-          />
-          <img
-            className="mt-4 w-full lg:mt-10 rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png"
-            alt="konten kantor 2"
-          />
+    <section className="bg-blue-100 dark:bg-white-900 pb-20">
+      <div className="bg-white text-black">
+        <div className="container mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Image Section */}
+          <div>
+            <Image
+              src="/image/infor1.webp" // Replace with the actual path to your image in the public folder
+              alt="Team working together"
+              width={300}
+              height={50}
+              className="rounded-lg mx-auto"
+            />
+          </div>
+
+          {/* Feature List Section */}
+          <div>
+            <h2 className="text-3xl font-bold mb-4">Designed for business teams</h2>
+            <p className="text-gray-700 mb-8">
+              Deliver great service experiences fast - without the complexity of traditional ITSM solutions. Accelerate critical development work, eliminate toil, and deploy changes with ease.
+            </p>
+
+            <div className="space-y-6">
+              {/* Feature 1 */}
+              <Feature
+                title="PENDIDIKAN PROFESI GURU"
+                description="Program Pendidikan Profesi Guru (PPG) membantu calon guru untuk memperoleh sertifikasi pendidik melalui pelatihan profesional."
+                iconBg="bg-blue-600"
+                icon={
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6 text-white"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 20l9-5-9-5-9 5 9 5z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 12V4l-8 4m16 0l-8-4" />
+                  </svg>
+                }
+                link="#"
+              />
+
+              {/* Feature 2 */}
+              <Feature
+                title="APLIKASI PEMBERKASAN"
+                description="Sistem aplikasi berbasis digital untuk mempermudah pengelolaan dokumen secara aman dan efisien di lingkungan kerja."
+                iconBg="bg-purple-600"
+                icon={
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6 text-white"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 4h16v16H4V4z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8 4v16" />
+                  </svg>
+                }
+                link="#"
+              />
+
+              {/* Feature 3 */}
+              <Feature
+                title="E-LEARNING"
+                description="Platform pembelajaran daring yang dirancang untuk mendukung proses pendidikan dengan fleksibilitas waktu dan lokasi."
+                iconBg="bg-green-600"
+                icon={
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6 text-white"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 10h18M9 21V10m6 0v11" />
+                  </svg>
+                }
+                link="#"
+              />
+
+              {/* Feature 4 */}
+              <Feature
+                title="INFO@UNISMUH.AC.ID"
+                description="Hubungi kami untuk pertanyaan lebih lanjut melalui email resmi Universitas Muhammadiyah."
+                iconBg="bg-green-600"
+                icon={
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6 text-white"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l9 6 9-6" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 8v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8" />
+                  </svg>
+                }
+                link="#"
+              />
+            </div>
+
+          </div>
         </div>
       </div>
+
+
 
       <section className="bg-white dark:bg-gray-900">
         <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
@@ -271,7 +357,7 @@ export default function Features() {
               date="10 Nov 2024"
               description="Beasiswa khusus untuk anak-anak di LPKA yang berprestasi, diberikan oleh Unismuh Makassar untuk mendukung pendidikan mereka."
               linkText="Pelajari lebih lanjut"
-              image="/image/OIP.jpg"
+              image="/image/p1.jpg"
               avatar="/image/avatar1.jpg"
               className="flex-shrink-0 w-11/12 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4"
             />
@@ -281,7 +367,7 @@ export default function Features() {
               date="5 Nov 2024"
               description="Program pelatihan karir bagi mahasiswa Unismuh, yang melibatkan pembinaan dan bimbingan langsung dari ahli di bidangnya."
               linkText="Daftar sekarang"
-              image="/image/OIP.jpg"
+              image="/image/p2.jpg"
               avatar="/image/avatar2.jpg"
               className="flex-shrink-0 w-11/12 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4"
             />
@@ -291,7 +377,7 @@ export default function Features() {
               date="1 Nov 2024"
               description="Ayo bergabung sebagai relawan di LPKA Makassar dan berkontribusi dalam pembinaan anak-anak di lingkungan khusus ini."
               linkText="Lamar sekarang"
-              image="/image/OIP.jpg"
+              image="/image/p3.jpg"
               avatar="/image/avatar3.jpg"
               className="flex-shrink-0 w-11/12 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4"
             />
@@ -301,7 +387,7 @@ export default function Features() {
               date="28 Okt 2024"
               description="Program sosialisasi peduli lingkungan untuk anak-anak di LPKA, mengajarkan pentingnya menjaga kebersihan dan kelestarian lingkungan."
               linkText="Baca selengkapnya"
-              image="/image/OIP.jpg"
+              image="/image/p4.jpg"
               avatar="/image/avatar4.jpg"
               className="flex-shrink-0 w-11/12 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4"
             />
@@ -311,7 +397,7 @@ export default function Features() {
               date="20 Okt 2024"
               description="Workshop keterampilan hidup bagi anak-anak di LPKA, fokus pada pengembangan keterampilan praktis yang berguna."
               linkText="Ikuti sekarang"
-              image="/image/OIP.jpg"
+              image="/image/p5.jpg"
               avatar="/image/avatar5.jpg"
               className="flex-shrink-0 w-11/12 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4"
             />
@@ -321,7 +407,7 @@ export default function Features() {
               date="15 Okt 2024"
               description="Pelatihan pengembangan karakter bagi anak-anak di LPKA, memberikan edukasi tentang etika, moral, dan nilai-nilai positif."
               linkText="Cari tahu lebih lanjut"
-              image="/image/OIP.jpg"
+              image="/image/p6.jpg"
               avatar="/image/avatar6.jpg"
               className="flex-shrink-0 w-11/12 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4"
             />
@@ -339,42 +425,42 @@ export default function Features() {
             author="Fadli Ramadhan"
             date="15 Agu 2024"
             readTime="16 menit baca"
-            image="/image/OIP.jpg"
+            image="/image/berita1.jpeg"
           />
           <BeritaCard
             title="Kerjasama Beasiswa dengan Institusi"
             author="Ayu Mariani"
             date="12 Agu 2024"
             readTime="10 menit baca"
-            image="/image/OIP.jpg"
+            image="/image/berita2.jpeg"
           />
           <BeritaCard
             title="Workshop Pengembangan Diri"
             author="Yusuf Malik"
             date="8 Agu 2024"
             readTime="12 menit baca"
-            image="/image/OIP.jpg"
+            image="/image/berita3.png"
           />
           <BeritaCard
             title="Pelatihan Kepemimpinan"
             author="Rahmawati Zainal"
             date="5 Agu 2024"
             readTime="8 menit baca"
-            image="/image/OIP.jpg"
+            image="/image/berita4.jpeg"
           />
           <BeritaCard
             title="Kampanye Kebersihan Lingkungan"
             author="Dedi Supriyadi"
             date="1 Agu 2024"
             readTime="6 menit baca"
-            image="/image/OIP.jpg"
+            image="/image/berita5.jpeg"
           />
           <BeritaCard
             title="Program Kesehatan Anak"
             author="Nur Aisyah"
             date="28 Jul 2024"
             readTime="14 menit baca"
-            image="/image/OIP.jpg"
+            image="/image/berita6.jpeg"
           />
         </div>
       </div>
@@ -432,3 +518,23 @@ const Pengumuman = ({ title, author, date, description, linkText, image, avatar,
     </div>
   );
 };
+
+function Feature({ title, description, icon, iconBg, link }) {
+  return (
+    <div>
+      <div className="flex items-center gap-4">
+        <div className={`p-3 rounded-full ${iconBg}`}>
+          {icon}
+        </div>
+        <h3 className="text-xl font-semibold">{title}</h3>
+      </div>
+      <p className="text-gray-400 mt-2">{description}</p>
+      <a href={link} className="text-blue-400 mt-2 inline-flex items-center">
+        Learn more
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  );
+}
