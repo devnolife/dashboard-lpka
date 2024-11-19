@@ -1,6 +1,7 @@
 "use client";
 import { useRef } from 'react';
 import Image from 'next/image';
+import React from 'react';
 
 
 export default function Features() {
@@ -22,29 +23,39 @@ export default function Features() {
 
   return (
     <section className="bg-blue-100 dark:bg-white-900 pb-20">
-          <section className="bg-white dark:bg-gray-900">
-      <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
-        <div className="max-w-screen-md mb-8 lg:mb-16">
-          <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
-            Designed for business teams like yours
-          </h2>
-          <p className="text-gray-500 sm:text-xl dark:text-gray-400">
-            Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.
-          </p>
-        </div>
-        <div className="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-12 md:space-y-0">
-          {features.map((feature, index) => (
-            <div key={index}>
-              <div className={`flex justify-center items-center mb-4 w-10 h-10 rounded-full ${feature.bgColor} lg:h-12 lg:w-12`}>
-                {feature.icon}
+      <section className="bg-white dark:bg-gray-900">
+        <div className="py-12 px-6 mx-auto max-w-screen-xl text-center sm:py-20 lg:px-8">
+          <div className="max-w-screen-md mx-auto mb-12 lg:mb-20">
+            <h2 className="mb-6 text-5xl font-extrabold text-gray-900 dark:text-white">
+              Dirancang untuk tim bisnis seperti Anda
+            </h2>
+            <p className="text-lg sm:text-2xl text-gray-500 dark:text-gray-400">
+              Di Flowbite, kami berfokus pada pasar di mana teknologi, inovasi, dan modal dapat membuka nilai jangka panjang dan mendorong pertumbuhan ekonomi.
+            </p>
+          </div>
+          <div className="space-y-10 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-16 md:space-y-0">
+            {features.map((feature, index) => (
+              <div key={index} className="text-center">
+                {/* Lingkaran Ikon */}
+                <div className={`flex justify-center items-center mb-6 w-16 h-16 rounded-full ${feature.bgColor}`}>
+                  {/* Gambar Ikon */}
+                  <div className="flex justify-center items-center w-full h-full">
+                    <img
+                      src={feature.icon} // Gambar sebagai ikon
+                      alt={feature.title} // Deskripsi gambar untuk aksesibilitas
+                      className="w-8 h-8 lg:w-10 lg:h-10 object-contain" // Ukuran dan pengaturan objek
+                    />
+                  </div>
+                </div>
+                {/* Judul dan Deskripsi */}
+                <h3 className="mb-4 text-2xl font-bold text-gray-800 dark:text-white">{feature.title}</h3>
+                <p className="text-lg text-gray-600 dark:text-gray-400">{feature.description}</p>
               </div>
-              <h3 className="mb-2 text-xl font-bold text-black dark:text-black">{feature.title}</h3>
-              <p className="text-gray-500 dark:text-black">{feature.description}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
 
       <section className="bg-white dark:bg-gray-900">
         <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
@@ -58,13 +69,13 @@ export default function Features() {
             {/* Team Member 1 */}
             <div className="items-center bg-gray-50 rounded-lg shadow sm:flex dark:bg-gray-800 dark:border-gray-700">
               <a href="#">
-                <img className="w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png" alt="Bonnie Avatar" />
+                <img className="w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src="image/icon/do1.png" alt="Dr. Ir. NENNY, S.T., M.T." />
               </a>
               <div className="p-5">
                 <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-                  <a href="#">Bonnie Green</a>
+                  <a href="#">Dr. Ir. NENNY, S.T., M.T.</a>
                 </h3>
-                <span className="text-gray-500 dark:text-gray-400">CEO & Web Developer</span>
+                <span className="text-gray-500 dark:text-gray-400">JAB FUNG : Lektor Kepala </span>
                 <p className="mt-3 mb-4 font-light text-gray-500 dark:text-gray-400">
                   Bonnie drives the technical strategy of the Flowbite platform and brand.
                 </p>
@@ -104,13 +115,13 @@ export default function Features() {
             {/* Team Member 2 */}
             <div className="items-center bg-gray-50 rounded-lg shadow sm:flex dark:bg-gray-800 dark:border-gray-700">
               <a href="#">
-                <img className="w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png" alt="Jese Avatar" />
+                <img className="w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src="image/icon/do2.png" alt="Jese Avatar" />
               </a>
               <div className="p-5">
                 <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-                  <a href="#">Jese Leos</a>
+                  <a href="#">Dr. Ir. ANDI MAKBUL SYAMSURI, S.T., M.T., IPM.</a>
                 </h3>
-                <span className="text-gray-500 dark:text-gray-400">CTO</span>
+                <span className="text-gray-500 dark:text-gray-400">JAB FUNG : Lektor</span>
                 <p className="mt-3 mb-4 font-light text-gray-500 dark:text-gray-400">
                   Jese drives the technical strategy of the Flowbite platform and brand.
                 </p>
@@ -149,13 +160,13 @@ export default function Features() {
 
             <div className="items-center bg-gray-50 rounded-lg shadow sm:flex dark:bg-gray-800 dark:border-gray-700">
               <a href="#">
-                <img className="w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png" alt="Jese Avatar" />
+                <img className="w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src="image/icon/do3.png" alt="Jese Avatar" />
               </a>
               <div className="p-5">
                 <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-                  <a href="#">Jese Leos</a>
+                  <a href="#">Ir. ASNITA VIRLAYANI, S.T., M.T.</a>
                 </h3>
-                <span className="text-gray-500 dark:text-gray-400">CTO</span>
+                <span className="text-gray-500 dark:text-gray-400">JAB FUNG : Lektor </span>
                 <p className="mt-3 mb-4 font-light text-gray-500 dark:text-gray-400">
                   Jese drives the technical strategy of the Flowbite platform and brand.
                 </p>
@@ -194,13 +205,13 @@ export default function Features() {
 
             <div className="items-center bg-gray-50 rounded-lg shadow sm:flex dark:bg-gray-800 dark:border-gray-700">
               <a href="#">
-                <img className="w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png" alt="Bonnie Avatar" />
+                <img className="w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src="image/icon/do4.png" alt="Bonnie Avatar" />
               </a>
               <div className="p-5">
                 <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-                  <a href="#">Bonnie Green</a>
+                  <a href="#">Dr. MARUPAH, S.P., M.P.</a>
                 </h3>
-                <span className="text-gray-500 dark:text-gray-400">CEO & Web Developer</span>
+                <span className="text-gray-500 dark:text-gray-400">JAB FUNG : Lektor </span>
                 <p className="mt-3 mb-4 font-light text-gray-500 dark:text-gray-400">
                   Bonnie drives the technical strategy of the Flowbite platform and brand.
                 </p>
@@ -432,152 +443,73 @@ const Pengumuman = ({ title, author, date, description, linkText, image, avatar,
   );
 };
 
-function Feature({ title, description, icon, iconBg, link }) {
-  return (
-    <div>
-      <div className="flex items-center gap-4">
-        <div className={`p-3 rounded-full ${iconBg}`}>
-          {icon}
-        </div>
-        <h3 className="text-xl font-semibold">{title}</h3>
-      </div>
-      <p className="text-gray-400 mt-2">{description}</p>
-      <a href={link} className="text-blue-400 mt-2 inline-flex items-center">
-        Learn more
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-        </svg>
-      </a>
-    </div>
-  );
-}
+// function Feature({ title, description, icon, iconBg, link }) {
+//   return (
+//     <div>
+//       <div className="flex items-center gap-4">
+//         <div className={`p-3 rounded-full ${iconBg}`}>
+//           {icon}
+//         </div>
+//         <h3 className="text-xl font-semibold">{title}</h3>
+//       </div>
+//       <p className="text-gray-400 mt-2">{description}</p>
+//       <a href={link} className="text-blue-400 mt-2 inline-flex items-center">
+//         Learn more
+//         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+//           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+//         </svg>
+//       </a>
+//     </div>
+//   );
+// }
 
 const features = [
   {
     title: 'Salurkan Minat Bakatmu',
     description: 'Temukan berbagai kegiatan yang dapat membantu mengasah dan mengembangkan minat serta bakatmu.',
-    icon: (
-      <svg
-        className="w-5 h-5 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300"
-        fill="currentColor"
-        viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path d="M13 7H7v6h6V7z" />
-        <path
-          fillRule="evenodd"
-          d="M10 2a8 8 0 100 16 8 8 0 000-16zm-3 5a3 3 0 016 0v6a3 3 0 01-6 0V7z"
-          clipRule="evenodd"
-        />
-      </svg>
-    ),
+    icon: '/image/icon/palet.png',  // Replace with actual image path
     bgColor: 'bg-blue-100 dark:bg-blue-900',
   },
   {
     title: 'Gali Kreativitasmu',
     description: 'Ikuti program dan workshop yang dirancang untuk mengeluarkan sisi kreatif terbaikmu.',
-    icon: (
-      <svg
-        className="w-5 h-5 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300"
-        fill="currentColor"
-        viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path d="M10 3a7 7 0 100 14 7 7 0 000-14zm-3 7a3 3 0 116 0 3 3 0 01-6 0z" />
-      </svg>
-    ),
+    icon: '/image/icon/lampu.png',  // Replace with actual image path
     bgColor: 'bg-yellow-100 dark:bg-yellow-900',
   },
   {
     title: 'Yuk Bikin Usaha!',
     description: 'Belajar cara memulai bisnis dan mengelola usaha untuk mewujudkan impianmu.',
-    icon: (
-      <svg
-        className="w-5 h-5 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300"
-        fill="currentColor"
-        viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path d="M3 3h14v2H3V3zm0 4h14v10H3V7z" />
-      </svg>
-    ),
+    icon: '/image/icon/koper.png',  // Replace with actual image path
     bgColor: 'bg-green-100 dark:bg-green-900',
   },
   {
     title: 'Rancang Karirmu Di Sini',
     description: 'Dapatkan panduan dan dukungan untuk membangun jalur karir yang sesuai dengan potensimu.',
-    icon: (
-      <svg
-        className="w-5 h-5 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300"
-        fill="currentColor"
-        viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path d="M10 2a6 6 0 016 6v4a6 6 0 11-12 0V8a6 6 0 016-6z" />
-      </svg>
-    ),
+    icon: '/image/icon/target.png',  // Replace with actual image path
     bgColor: 'bg-purple-100 dark:bg-purple-900',
   },
   {
     title: 'Bergabung di Organisasi Mahasiswa',
     description: 'Perluas jaringan dan keterampilanmu dengan menjadi bagian dari organisasi mahasiswa.',
-    icon: (
-      <svg
-        className="w-5 h-5 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300"
-        fill="currentColor"
-        viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path d="M5 9a5 5 0 0110 0v3H5V9z" />
-        <path d="M2 13h16v4H2v-4z" />
-      </svg>
-    ),
+    icon: '/image/icon/tangan.png',  // Replace with actual image path
     bgColor: 'bg-teal-100 dark:bg-teal-900',
   },
   {
     title: 'Daftar Beasiswa',
     description: 'Cek peluang beasiswa untuk mendukung pendidikan dan karirmu.',
-    icon: (
-      <svg
-        className="w-5 h-5 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300"
-        fill="currentColor"
-        viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path d="M10 2l4 4H6l4-4zm0 2v6h2v-6h-2z" />
-      </svg>
-    ),
+    icon: '/image/icon/sertifikat.png',  // Replace with actual image path
     bgColor: 'bg-red-100 dark:bg-red-900',
   },
   {
     title: 'Curhat Yuk!',
     description: 'Butuh teman bicara? Kami menyediakan ruang untuk berbagi cerita dan mendapatkan solusi.',
-    icon: (
-      <svg
-        className="w-5 h-5 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300"
-        fill="currentColor"
-        viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path d="M2 8a6 6 0 1112 0 6 6 0 01-12 0zm10 7H4v3l4-3h4v-3z" />
-      </svg>
-    ),
+    icon: '/image/icon/chat.png',  // Replace with actual image path
     bgColor: 'bg-pink-100 dark:bg-pink-900',
   },
   {
     title: 'Ajukan Reward Prestasi',
     description: 'Dapatkan penghargaan atas pencapaian luar biasa yang telah kamu raih.',
-    icon: (
-      <svg
-        className="w-5 h-5 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300"
-        fill="currentColor"
-        viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path d="M10 2l4 8-4 8-4-8 4-8z" />
-      </svg>
-    ),
+    icon: '/image/icon/trophy.png',  // Replace with actual image path
     bgColor: 'bg-orange-100 dark:bg-orange-900',
   },
 ];
-  
