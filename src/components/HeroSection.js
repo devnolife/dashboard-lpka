@@ -1,6 +1,6 @@
 "use client";
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
+import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function HeroSection() {
   const [navbarHeight, setNavbarHeight] = useState(0);
@@ -8,7 +8,7 @@ export default function HeroSection() {
 
   useEffect(() => {
     if (typeof window !== "undefined" && typeof document !== "undefined") {
-      const navbar = document.querySelector('nav');
+      const navbar = document.querySelector("nav");
       if (navbar) {
         setNavbarHeight(navbar.clientHeight);
       }
@@ -22,10 +22,10 @@ export default function HeroSection() {
   }, []);
 
   const slides = [
-    { src: '/image/gedung_crop.png', alt: 'Deskripsi gambar 1' },
-    { src: '/image/banner1.jpeg', alt: 'Deskripsi gambar 2' },
-    { src: '/image/banner2.jpg', alt: 'Deskripsi gambar 3' },
-    { src: '/image/banner3.jpg', alt: 'Deskripsi gambar 4' },
+    { src: "/image/gedung_crop.png", alt: "Deskripsi gambar 1" },
+    { src: "/image/banner1.jpeg", alt: "Deskripsi gambar 2" },
+    { src: "/image/banner2.jpg", alt: "Deskripsi gambar 3" },
+    { src: "/image/banner3.jpg", alt: "Deskripsi gambar 4" },
   ];
 
   const nextSlide = () => {
@@ -43,15 +43,12 @@ export default function HeroSection() {
       style={{ paddingTop: navbarHeight }}
     >
       {/* Carousel wrapper */}
-      <div
-        className="relative overflow-hidden rounded-lg"
-        style={{ height: '600px', width: '100%' }} // Atur ukuran di sini
-      >
+      <div className="relative overflow-hidden rounded-lg h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] xl:h-[90vh]">
         {slides.map((slide, index) => (
           <div
             key={index}
             className={`absolute inset-0 transition-opacity duration-1000 ease-in-out transform ${
-              index === currentSlide ? 'opacity-100' : 'opacity-0'
+              index === currentSlide ? "opacity-100" : "opacity-0"
             }`}
           >
             <Image
@@ -59,27 +56,31 @@ export default function HeroSection() {
               alt={slide.alt}
               fill
               sizes="(min-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              style={{ objectFit: 'cover' }} // Ubah objectFit menjadi 'cover'
+              style={{ objectFit: "cover" }}
               priority={index === 0}
             />
           </div>
         ))}
       </div>
-      
+
       {/* Carousel indicators */}
       <div className="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
         {slides.map((_, index) => (
           <button
             key={index}
             type="button"
-            className={`w-3 h-3 rounded-full ${index === currentSlide ? 'bg-white' : 'bg-white/50 hover:bg-white'}`}
+            className={`w-3 h-3 rounded-full ${
+              index === currentSlide
+                ? "bg-white"
+                : "bg-white/50 hover:bg-white"
+            }`}
             aria-current={index === currentSlide}
             aria-label={`Slide ${index + 1}`}
             onClick={() => setCurrentSlide(index)}
           ></button>
         ))}
       </div>
-      
+
       {/* Slider controls */}
       <button
         type="button"
