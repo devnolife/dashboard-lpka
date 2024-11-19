@@ -45,7 +45,7 @@ export default function HeroSection() {
       {/* Carousel wrapper */}
       <div
         className="relative overflow-hidden rounded-lg"
-        style={{ height: '800px', width: '100%' }} // Atur ukuran di sini
+        style={{ height: '600px', width: '100%' }} // Atur ukuran di sini
       >
         {slides.map((slide, index) => (
           <div

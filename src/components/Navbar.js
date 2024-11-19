@@ -25,7 +25,7 @@ export default function Navbar() {
         {/* Logo */}
         <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
           <img src="image/logo-unismuh.png" className="h-8" alt="Flowbite Logo" />
-          <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-black">
+          <span className="self-center text-2xl font-semibold whitespace-nowrap text-gray-600 dark:text-black">
             Unismuh
           </span>
         </a>
@@ -103,7 +103,7 @@ export default function Navbar() {
                 className="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
               >
                 <img
-                  src={`/images/${selectedLanguage.toLowerCase()}.png`}
+                  src={`/image/${selectedLanguage.toLowerCase()}.png`}
                   alt={`${selectedLanguage} Flag`}
                   className="w-5 h-5 mr-2"
                 />
@@ -138,7 +138,7 @@ export default function Navbar() {
                         className="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white w-full"
                       >
                         <img
-                          src="/images/id.png"
+                          src="/image/id.png"
                           alt="Indonesian Flag"
                           className="w-5 h-5 mr-2"
                         />
@@ -151,7 +151,7 @@ export default function Navbar() {
                         className="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white w-full"
                       >
                         <img
-                          src="/images/en.png"
+                          src="/image/en.png"
                           alt="English Flag"
                           className="w-5 h-5 mr-2"
                         />
@@ -164,7 +164,7 @@ export default function Navbar() {
                         className="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white w-full"
                       >
                         <img
-                          src="/images/ar.png"
+                          src="/image/ar.png"
                           alt="Arabic Flag"
                           className="w-5 h-5 mr-2"
                         />

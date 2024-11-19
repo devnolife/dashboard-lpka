@@ -22,116 +22,29 @@ export default function Features() {
 
   return (
     <section className="bg-blue-100 dark:bg-white-900 pb-20">
-      <div className="bg-white text-black">
-        <div className="container mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Image Section */}
-          <div>
-            <Image
-              src="/image/infor1.webp" // Replace with the actual path to your image in the public folder
-              alt="Team working together"
-              width={300}
-              height={50}
-              className="rounded-lg mx-auto"
-            />
-          </div>
-
-          {/* Feature List Section */}
-          <div>
-            <h2 className="text-3xl font-bold mb-4">Designed for business teams</h2>
-            <p className="text-gray-700 mb-8">
-              Deliver great service experiences fast - without the complexity of traditional ITSM solutions. Accelerate critical development work, eliminate toil, and deploy changes with ease.
-            </p>
-
-            <div className="space-y-6">
-              {/* Feature 1 */}
-              <Feature
-                title="PENDIDIKAN PROFESI GURU"
-                description="Program Pendidikan Profesi Guru (PPG) membantu calon guru untuk memperoleh sertifikasi pendidik melalui pelatihan profesional."
-                iconBg="bg-blue-600"
-                icon={
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6 text-white"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 20l9-5-9-5-9 5 9 5z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 12V4l-8 4m16 0l-8-4" />
-                  </svg>
-                }
-                link="#"
-              />
-
-              {/* Feature 2 */}
-              <Feature
-                title="APLIKASI PEMBERKASAN"
-                description="Sistem aplikasi berbasis digital untuk mempermudah pengelolaan dokumen secara aman dan efisien di lingkungan kerja."
-                iconBg="bg-purple-600"
-                icon={
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6 text-white"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 4h16v16H4V4z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M8 4v16" />
-                  </svg>
-                }
-                link="#"
-              />
-
-              {/* Feature 3 */}
-              <Feature
-                title="E-LEARNING"
-                description="Platform pembelajaran daring yang dirancang untuk mendukung proses pendidikan dengan fleksibilitas waktu dan lokasi."
-                iconBg="bg-green-600"
-                icon={
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6 text-white"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 10h18M9 21V10m6 0v11" />
-                  </svg>
-                }
-                link="#"
-              />
-
-              {/* Feature 4 */}
-              <Feature
-                title="INFO@UNISMUH.AC.ID"
-                description="Hubungi kami untuk pertanyaan lebih lanjut melalui email resmi Universitas Muhammadiyah."
-                iconBg="bg-green-600"
-                icon={
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6 text-white"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l9 6 9-6" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 8v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8" />
-                  </svg>
-                }
-                link="#"
-              />
+          <section className="bg-white dark:bg-gray-900">
+      <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+        <div className="max-w-screen-md mb-8 lg:mb-16">
+          <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
+            Designed for business teams like yours
+          </h2>
+          <p className="text-gray-500 sm:text-xl dark:text-gray-400">
+            Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.
+          </p>
+        </div>
+        <div className="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-12 md:space-y-0">
+          {features.map((feature, index) => (
+            <div key={index}>
+              <div className={`flex justify-center items-center mb-4 w-10 h-10 rounded-full ${feature.bgColor} lg:h-12 lg:w-12`}>
+                {feature.icon}
+              </div>
+              <h3 className="mb-2 text-xl font-bold text-black dark:text-black">{feature.title}</h3>
+              <p className="text-gray-500 dark:text-black">{feature.description}</p>
             </div>
-
-          </div>
+          ))}
         </div>
       </div>
-
-
+    </section>
 
       <section className="bg-white dark:bg-gray-900">
         <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
@@ -538,3 +451,133 @@ function Feature({ title, description, icon, iconBg, link }) {
     </div>
   );
 }
+
+const features = [
+  {
+    title: 'Salurkan Minat Bakatmu',
+    description: 'Temukan berbagai kegiatan yang dapat membantu mengasah dan mengembangkan minat serta bakatmu.',
+    icon: (
+      <svg
+        className="w-5 h-5 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M13 7H7v6h6V7z" />
+        <path
+          fillRule="evenodd"
+          d="M10 2a8 8 0 100 16 8 8 0 000-16zm-3 5a3 3 0 016 0v6a3 3 0 01-6 0V7z"
+          clipRule="evenodd"
+        />
+      </svg>
+    ),
+    bgColor: 'bg-blue-100 dark:bg-blue-900',
+  },
+  {
+    title: 'Gali Kreativitasmu',
+    description: 'Ikuti program dan workshop yang dirancang untuk mengeluarkan sisi kreatif terbaikmu.',
+    icon: (
+      <svg
+        className="w-5 h-5 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M10 3a7 7 0 100 14 7 7 0 000-14zm-3 7a3 3 0 116 0 3 3 0 01-6 0z" />
+      </svg>
+    ),
+    bgColor: 'bg-yellow-100 dark:bg-yellow-900',
+  },
+  {
+    title: 'Yuk Bikin Usaha!',
+    description: 'Belajar cara memulai bisnis dan mengelola usaha untuk mewujudkan impianmu.',
+    icon: (
+      <svg
+        className="w-5 h-5 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M3 3h14v2H3V3zm0 4h14v10H3V7z" />
+      </svg>
+    ),
+    bgColor: 'bg-green-100 dark:bg-green-900',
+  },
+  {
+    title: 'Rancang Karirmu Di Sini',
+    description: 'Dapatkan panduan dan dukungan untuk membangun jalur karir yang sesuai dengan potensimu.',
+    icon: (
+      <svg
+        className="w-5 h-5 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M10 2a6 6 0 016 6v4a6 6 0 11-12 0V8a6 6 0 016-6z" />
+      </svg>
+    ),
+    bgColor: 'bg-purple-100 dark:bg-purple-900',
+  },
+  {
+    title: 'Bergabung di Organisasi Mahasiswa',
+    description: 'Perluas jaringan dan keterampilanmu dengan menjadi bagian dari organisasi mahasiswa.',
+    icon: (
+      <svg
+        className="w-5 h-5 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M5 9a5 5 0 0110 0v3H5V9z" />
+        <path d="M2 13h16v4H2v-4z" />
+      </svg>
+    ),
+    bgColor: 'bg-teal-100 dark:bg-teal-900',
+  },
+  {
+    title: 'Daftar Beasiswa',
+    description: 'Cek peluang beasiswa untuk mendukung pendidikan dan karirmu.',
+    icon: (
+      <svg
+        className="w-5 h-5 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M10 2l4 4H6l4-4zm0 2v6h2v-6h-2z" />
+      </svg>
+    ),
+    bgColor: 'bg-red-100 dark:bg-red-900',
+  },
+  {
+    title: 'Curhat Yuk!',
+    description: 'Butuh teman bicara? Kami menyediakan ruang untuk berbagi cerita dan mendapatkan solusi.',
+    icon: (
+      <svg
+        className="w-5 h-5 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M2 8a6 6 0 1112 0 6 6 0 01-12 0zm10 7H4v3l4-3h4v-3z" />
+      </svg>
+    ),
+    bgColor: 'bg-pink-100 dark:bg-pink-900',
+  },
+  {
+    title: 'Ajukan Reward Prestasi',
+    description: 'Dapatkan penghargaan atas pencapaian luar biasa yang telah kamu raih.',
+    icon: (
+      <svg
+        className="w-5 h-5 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M10 2l4 8-4 8-4-8 4-8z" />
+      </svg>
+    ),
+    bgColor: 'bg-orange-100 dark:bg-orange-900',
+  },
+];
+  
