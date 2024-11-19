@@ -1,4 +1,24 @@
+"use client";
+import { useRef } from 'react';
+
+
 export default function Features() {
+  const scrollRef = useRef(null);
+
+  // Function to handle left/right scroll
+  const scroll = (direction) => {
+    if (scrollRef.current) {
+      const cardWidth = scrollRef.current.firstChild.offsetWidth;
+      const scrollAmount = cardWidth * 3; // Scroll tiga card sekaligus
+      const newPosition = direction === 'left' ? scrollRef.current.scrollLeft - scrollAmount : scrollRef.current.scrollLeft + scrollAmount;
+
+      scrollRef.current.scrollTo({
+        left: newPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <section className="bg-blue-100 dark:bg-gray-900 pb-20">
       <div className="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
@@ -222,90 +242,151 @@ export default function Features() {
         </div>
       </section>
 
+      <section className="bg-white py-8 px-4">
+      <div className="container mx-auto text-gray-800">
+        <h2 className="text-2xl font-semibold mb-4">Pengumuman</h2>
+        
+        {/* Scroll Buttons */}
+        <div className="relative">
+          <button
+            onClick={() => scroll('left')}
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full shadow-lg"
+            aria-label="Scroll Left"
+          >
+            ◀
+          </button>
+          <button
+            onClick={() => scroll('right')}
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full shadow-lg"
+            aria-label="Scroll Right"
+          >
+            ▶
+          </button>
 
-      {/* Bagian Pengumuman */}
-      <section className="bg-gradient-to-r from-blue-100 via-white to-blue-100 py-8 px-4">
-        <div className="container mx-auto text-blue-800">
-          <h2 className="text-2xl font-semibold mb-4">Pengumuman</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {/* Card Slider */}
+          <div ref={scrollRef} className="flex overflow-hidden space-x-4 py-4 w-full">
             <Pengumuman
               title="Beasiswa Pendidikan LPKA"
+              author="Diana Sari"
               date="10 Nov 2024"
               description="Beasiswa khusus untuk anak-anak di LPKA yang berprestasi, diberikan oleh Unismuh Makassar untuk mendukung pendidikan mereka."
               linkText="Pelajari lebih lanjut"
               image="/image/OIP.jpg"
+              avatar="/image/avatar1.jpg"
+              className="flex-shrink-0 w-11/12 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4"
             />
             <Pengumuman
               title="Pelatihan Karir Mahasiswa"
+              author="Rizky Ramadhan"
               date="5 Nov 2024"
               description="Program pelatihan karir bagi mahasiswa Unismuh, yang melibatkan pembinaan dan bimbingan langsung dari ahli di bidangnya."
               linkText="Daftar sekarang"
               image="/image/OIP.jpg"
+              avatar="/image/avatar2.jpg"
+              className="flex-shrink-0 w-11/12 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4"
             />
             <Pengumuman
               title="Kesempatan Relawan LPKA"
+              author="Siti Nurhaliza"
               date="1 Nov 2024"
               description="Ayo bergabung sebagai relawan di LPKA Makassar dan berkontribusi dalam pembinaan anak-anak di lingkungan khusus ini."
               linkText="Lamar sekarang"
               image="/image/OIP.jpg"
+              avatar="/image/avatar3.jpg"
+              className="flex-shrink-0 w-11/12 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4"
+            />
+            <Pengumuman
+              title="Sosialisasi Lingkungan Hidup"
+              author="Budi Santoso"
+              date="28 Okt 2024"
+              description="Program sosialisasi peduli lingkungan untuk anak-anak di LPKA, mengajarkan pentingnya menjaga kebersihan dan kelestarian lingkungan."
+              linkText="Baca selengkapnya"
+              image="/image/OIP.jpg"
+              avatar="/image/avatar4.jpg"
+              className="flex-shrink-0 w-11/12 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4"
+            />
+            <Pengumuman
+              title="Workshop Keterampilan Hidup"
+              author="Indah Permata"
+              date="20 Okt 2024"
+              description="Workshop keterampilan hidup bagi anak-anak di LPKA, fokus pada pengembangan keterampilan praktis yang berguna."
+              linkText="Ikuti sekarang"
+              image="/image/OIP.jpg"
+              avatar="/image/avatar5.jpg"
+              className="flex-shrink-0 w-11/12 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4"
+            />
+            <Pengumuman
+              title="Pengembangan Karakter"
+              author="Yusuf Hidayat"
+              date="15 Okt 2024"
+              description="Pelatihan pengembangan karakter bagi anak-anak di LPKA, memberikan edukasi tentang etika, moral, dan nilai-nilai positif."
+              linkText="Cari tahu lebih lanjut"
+              image="/image/OIP.jpg"
+              avatar="/image/avatar6.jpg"
+              className="flex-shrink-0 w-11/12 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4"
             />
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      {/* Bagian Berita Terbaru */}
-      <section className="bg-gradient-to-r from-blue-100 via-white to-blue-100 py-8 px-4">
-        <div className="container mx-auto text-blue-800">
-          <h2 className="text-2xl font-semibold mb-4">Berita Terbaru</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <BeritaCard
-              title="Penyuluhan & Edukasi di LPKA"
-              author="Fadli Ramadhan"
-              date="15 Agu 2024"
-              readTime="16 menit baca"
-              description="Unismuh Makassar mengadakan penyuluhan bagi anak-anak di LPKA, memberikan pendidikan tentang keterampilan hidup dan nilai-nilai sosial."
-              image="/image/OIP.jpg"
-            />
-            <BeritaCard
-              title="Kerjasama Beasiswa dengan Institusi"
-              author="Ayu Mariani"
-              date="12 Agu 2024"
-              readTime="10 menit baca"
-              description="Unismuh memperluas jaringan beasiswa dengan berbagai institusi, membuka peluang beasiswa bagi anak-anak yang berada di LPKA."
-              image="/image/OIP.jpg"
-            />
-            <BeritaCard
-              title="Workshop Pengembangan Diri"
-              author="Yusuf Malik"
-              date="8 Agu 2024"
-              readTime="12 menit baca"
-              description="Unismuh Makassar mengadakan workshop untuk pengembangan diri anak-anak di LPKA, berfokus pada pendidikan karakter dan keterampilan praktis."
-              image="/image/OIP.jpg"
-            />
-          </div>
+    <section className="bg-white py-8 px-4">
+      <div className="container mx-auto text-gray-800">
+        <h2 className="text-2xl font-semibold mb-4">Berita Terbaru</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <BeritaCard
+            title="Penyuluhan & Edukasi di LPKA"
+            author="Fadli Ramadhan"
+            date="15 Agu 2024"
+            readTime="16 menit baca"
+            image="/image/OIP.jpg"
+          />
+          <BeritaCard
+            title="Kerjasama Beasiswa dengan Institusi"
+            author="Ayu Mariani"
+            date="12 Agu 2024"
+            readTime="10 menit baca"
+            image="/image/OIP.jpg"
+          />
+          <BeritaCard
+            title="Workshop Pengembangan Diri"
+            author="Yusuf Malik"
+            date="8 Agu 2024"
+            readTime="12 menit baca"
+            image="/image/OIP.jpg"
+          />
+          <BeritaCard
+            title="Pelatihan Kepemimpinan"
+            author="Rahmawati Zainal"
+            date="5 Agu 2024"
+            readTime="8 menit baca"
+            image="/image/OIP.jpg"
+          />
+          <BeritaCard
+            title="Kampanye Kebersihan Lingkungan"
+            author="Dedi Supriyadi"
+            date="1 Agu 2024"
+            readTime="6 menit baca"
+            image="/image/OIP.jpg"
+          />
+          <BeritaCard
+            title="Program Kesehatan Anak"
+            author="Nur Aisyah"
+            date="28 Jul 2024"
+            readTime="14 menit baca"
+            image="/image/OIP.jpg"
+          />
         </div>
-      </section>
+      </div>
+    </section>
+
     </section>
   );
 }
 
-const Pengumuman = ({ title, date, description, linkText, image }) => {
+function BeritaCard({ title, author, date, readTime, image }) {
   return (
-    <div className="bg-blue-100 text-blue-800 rounded-lg shadow-lg overflow-hidden">
-      {image && <img src={image} alt={title} className="w-full h-48 object-cover" />}
-      <div className="p-4">
-        <h3 className="text-xl font-semibold mb-2">{title}</h3>
-        <p className="text-sm text-gray-600 mb-2">{date}</p>
-        <p className="text-gray-600 mb-4">{description}</p>
-        <a href="#" className="text-blue-500 hover:underline">{linkText}</a>
-      </div>
-    </div>
-  );
-};
-
-function BeritaCard({ title, author, date, readTime, description, image }) {
-  return (
-    <div className="bg-blue-100 rounded-lg shadow-md overflow-hidden">
+    <div className="bg-white rounded-lg shadow-md overflow-hidden">
       <img src={image} alt={title} className="w-full h-48 object-cover" />
       <div className="p-4">
         <div className="flex items-center mb-2">
@@ -316,11 +397,38 @@ function BeritaCard({ title, author, date, readTime, description, image }) {
           </div>
         </div>
         <h3 className="text-lg font-semibold text-blue-800">{title}</h3>
-        <p className="text-gray-600 mt-2">{description}</p>
         <a href="#" className="text-blue-500 mt-4 inline-block">
-          Baca selengkapnya →
+          Read more →
         </a>
       </div>
     </div>
   );
 }
+
+const Pengumuman = ({ title, author, date, description, linkText, image, avatar, className }) => {
+  return (
+    <div className={`bg-white text-gray-800 rounded-lg shadow-xl overflow-hidden border border-gray-200 ${className}`}>
+      {/* Card Image */}
+      {image && <img src={image} alt={title} className="w-full h-40 object-cover" />}
+      
+      {/* Card Content */}
+      <div className="p-4">
+        {/* Author and Date */}
+        <div className="flex items-center mb-2">
+          <img src={avatar} alt={author} className="w-8 h-8 rounded-full mr-2" />
+          <div className="text-sm">
+            <p className="font-semibold">{author}</p>
+            <p className="text-gray-500">{date}</p>
+          </div>
+        </div>
+        
+        {/* Title and Description */}
+        <h3 className="text-lg font-semibold mb-2">{title}</h3>
+        <p className="text-gray-600 mb-4">{description}</p>
+        
+        {/* Link */}
+        <a href="#" className="text-blue-500 hover:underline">{linkText} →</a>
+      </div>
+    </div>
+  );
+};
