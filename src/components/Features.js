@@ -66,17 +66,17 @@ export default function Features() {
             <a href="#">
               <img
                 className="w-full rounded-lg sm:rounded-none sm:rounded-l-lg"
-                src="image/icon/do1.png"
+                src="image/profile.png"
                 alt="Dr. Ir. NENNY, S.T., M.T."
               />
             </a>
             <div className="p-5">
               <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-                <a href="#">Dr. Ir. NENNY, S.T., M.T.</a>
+                <a href="#">Name</a>
               </h3>
               <span className="text-gray-500 dark:text-gray-400">Ketua LPKA</span>
               <p className="mt-3 mb-4 font-light text-gray-500 dark:text-gray-400">
-                  Dr. Ir. Nenny, S.T., M.T. adalah Ketua Lembaga Pengembangan Kompetensi Akademik (LPKA) yang memimpin dengan visi kuat untuk mengembangkan strategi akademik, membangun kolaborasi yang inovatif, serta memastikan tercapainya tujuan institusional melalui pendekatan yang berorientasi pada hasil dan pengembangan sumber daya manusia.
+                  Ketua Lembaga Pengembangan Kompetensi Akademik (LPKA) yang memimpin dengan visi kuat untuk mengembangkan strategi akademik, membangun kolaborasi yang inovatif, serta memastikan tercapainya tujuan institusional melalui pendekatan yang berorientasi pada hasil dan pengembangan sumber daya manusia.
               </p>
               <ul className="flex space-x-4 sm:mt-0">
                 <li>

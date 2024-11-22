@@ -3,17 +3,9 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 
 export default function HeroSection() {
-  const [navbarHeight, setNavbarHeight] = useState(0);
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
-    if (typeof window !== "undefined" && typeof document !== "undefined") {
-      const navbar = document.querySelector("nav");
-      if (navbar) {
-        setNavbarHeight(navbar.clientHeight);
-      }
-    }
-
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 5000); // Ganti slide setiap 5 detik
@@ -23,9 +15,9 @@ export default function HeroSection() {
 
   const slides = [
     { src: "/image/gedung_crop.png", alt: "Deskripsi gambar 1" },
-    { src: "/image/banner1.jpeg", alt: "Deskripsi gambar 2" },
+    { src: "/image/prestasi1.jpg", alt: "Deskripsi gambar 2" },
     { src: "/image/banner2.jpg", alt: "Deskripsi gambar 3" },
-    { src: "/image/banner3.jpg", alt: "Deskripsi gambar 4" },
+    { src: "/image/prestasi2.jpeg", alt: "Deskripsi gambar 4" },
   ];
 
   const nextSlide = () => {
@@ -37,13 +29,9 @@ export default function HeroSection() {
   };
 
   return (
-    <div
-      id="indicators-carousel"
-      className="relative w-full"
-      style={{ paddingTop: navbarHeight }}
-    >
+    <div id="indicators-carousel" className="relative w-full h-screen"> {/* Ubah padding top */}
       {/* Carousel wrapper */}
-      <div className="relative overflow-hidden rounded-lg h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] xl:h-[90vh]">
+      <div className="relative overflow-hidden rounded-lg w-full h-full">
         {slides.map((slide, index) => (
           <div
             key={index}
