@@ -6,6 +6,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState("ID");
   const [isScrolled, setIsScrolled] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -18,6 +19,10 @@ export default function Navbar() {
   const changeLanguage = (language) => {
     setSelectedLanguage(language);
     setIsDropdownOpen(false);
+  };
+
+  const handleDropdown = (section) => {
+    setOpenDropdown(openDropdown === section ? null : section);
   };
 
   useEffect(() => {
@@ -91,35 +96,140 @@ export default function Navbar() {
                 Home
               </a>
             </li>
-            <li>
-              <a
-                href="#"
-                className={`block py-2 px-3 md:p-0 ${
+            
+            {/* About Us with Dropdown */}
+            <li className="relative">
+              <button
+                onClick={() => handleDropdown("about")}
+                className={`flex items-center py-2 px-3 md:p-0 ${
                   isScrolled ? "text-gray-900" : "text-white"
                 } hover:text-gray-500`}
               >
-                Services
-              </a>
+                About Us
+                <svg
+                  className="w-2.5 h-2.5 ms-2.5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 10 6"
+                >
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="m1 1 4 4 4-4"
+                  />
+                </svg>
+              </button>
+              {openDropdown === "about" && (
+                <div className="absolute z-10 font-normal bg-white rounded-lg shadow w-44">
+                  <ul className="py-2 text-sm text-gray-700">
+                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Prosedur Pelayanan LPKA</a></li>
+                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Struktur Organisasi</a></li>
+                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Pemimpin LPKA</a></li>
+                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Staff LPKA</a></li>
+                  </ul>
+                </div>
+              )}
             </li>
-            <li>
-              <a
-                href="#"
-                className={`block py-2 px-3 md:p-0 ${
+
+            {/* Informasi with Dropdown */}
+            <li className="relative">
+              <button
+                onClick={() => handleDropdown("informasi")}
+                className={`flex items-center py-2 px-3 md:p-0 ${
                   isScrolled ? "text-gray-900" : "text-white"
                 } hover:text-gray-500`}
               >
-                Pricing
-              </a>
+                Informasi
+                <svg className="w-2.5 h-2.5 ms-2.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
+                </svg>
+              </button>
+              {openDropdown === "informasi" && (
+                <div className="absolute z-10 font-normal bg-white rounded-lg shadow w-44">
+                  <ul className="py-2 text-sm text-gray-700">
+                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Kompetisi Mahasiswa</a></li>
+                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Prestasi Mahasiswa</a></li>
+                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Fasilitas Mahasiswa</a></li>
+                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Alumni Awards</a></li>
+                  </ul>
+                </div>
+              )}
             </li>
-            <li>
-              <a
-                href="#"
-                className={`block py-2 px-3 md:p-0 ${
+
+            {/* Layanan with Dropdown */}
+            <li className="relative">
+              <button
+                onClick={() => handleDropdown("layanan")}
+                className={`flex items-center py-2 px-3 md:p-0 ${
                   isScrolled ? "text-gray-900" : "text-white"
                 } hover:text-gray-500`}
               >
-                Contact
-              </a>
+                Layanan
+                <svg className="w-2.5 h-2.5 ms-2.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
+                </svg>
+              </button>
+              {openDropdown === "layanan" && (
+                <div className="absolute z-10 font-normal bg-white rounded-lg shadow w-44">
+                  <ul className="py-2 text-sm text-gray-700">
+                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Layanan Konseling & Kesehatan</a></li>
+                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Informasi Beasiswa</a></li>
+                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Inkubator Startup dan Bisnis</a></li>
+                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Persiapan Karir</a></li>
+                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Penalaran Karir dan Kreativitas Mahasiswa</a></li>
+                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Pengembangan Minat dan Bakat Mahasiswa</a></li>
+                  </ul>
+                </div>
+              )}
+            </li>
+
+            {/* Kuesioner with Dropdown */}
+            <li className="relative">
+              <button
+                onClick={() => handleDropdown("kuesioner")}
+                className={`flex items-center py-2 px-3 md:p-0 ${
+                  isScrolled ? "text-gray-900" : "text-white"
+                } hover:text-gray-500`}
+              >
+                Kuesioner
+                <svg className="w-2.5 h-2.5 ms-2.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
+                </svg>
+              </button>
+              {openDropdown === "kuesioner" && (
+                <div className="absolute z-10 font-normal bg-white rounded-lg shadow w-44">
+                  <ul className="py-2 text-sm text-gray-700">
+                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Kepuasan Pengguna Lulusan</a></li>
+                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Kepuasan Layanan</a></li>
+                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Tracer Study</a></li>
+                  </ul>
+                </div>
+              )}
+            </li>
+
+            {/* Dokumen with Dropdown */}
+            <li className="relative">
+              <button
+                onClick={() => handleDropdown("dokumen")}
+                className={`flex items-center py-2 px-3 md:p-0 ${
+                  isScrolled ? "text-gray-900" : "text-white"
+                } hover:text-gray-500`}
+              >
+                Dokumen
+                <svg className="w-2.5 h-2.5 ms-2.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
+                </svg>
+              </button>
+              {openDropdown === "dokumen" && (
+                <div className="absolute z-10 font-normal bg-white rounded-lg shadow w-44">
+                  <ul className="py-2 text-sm text-gray-700">
+                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Policies</a></li>
+                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Guidelines</a></li>
+                  </ul>
+                </div>
+              )}
             </li>
 
             {/* Language Selector */}

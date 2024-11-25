@@ -78,7 +78,7 @@ export default function Features() {
               <p className="mt-3 mb-4 font-light text-gray-500 dark:text-gray-400">
                   Ketua Lembaga Pengembangan Kompetensi Akademik (LPKA) yang memimpin dengan visi kuat untuk mengembangkan strategi akademik, membangun kolaborasi yang inovatif, serta memastikan tercapainya tujuan institusional melalui pendekatan yang berorientasi pada hasil dan pengembangan sumber daya manusia.
               </p>
-              <ul className="flex space-x-4 sm:mt-0">
+              {/* <ul className="flex space-x-4 sm:mt-0">
                 <li>
                   <a
                     href="#"
@@ -132,7 +132,7 @@ export default function Features() {
                     </svg>
                   </a>
                 </li>
-              </ul>
+              </ul> */}
             </div>
           </div>
         </div>
