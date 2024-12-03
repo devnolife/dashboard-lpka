@@ -24,7 +24,7 @@ export default function Features() {
             {features.map((feature, index) => (
               <div key={index} className="text-center">
                 {/* Lingkaran Ikon */}
-                <div className={'flex justify-center'}>
+                <div className={"flex justify-center"}>
                   <div
                     className={`flex justify-center items-center mb-6 w-36 h-36 rounded-full ${feature.bgColor}`}
                   >
@@ -59,7 +59,8 @@ export default function Features() {
               Ketua LPKA
             </h2>
             <p className="font-light text-gray-500 lg:mb-16 sm:text-xl dark:text-gray-400">
-              Memperkenalkan ketua Lembaga Pengembangan Kompetensi Akademik (LPKA) yang berdedikasi tinggi.
+              Memperkenalkan ketua Lembaga Pengembangan Kompetensi Akademik
+              (LPKA) yang berdedikasi tinggi.
             </p>
           </div>
           <div className="items-center bg-gray-50 rounded-lg shadow sm:flex dark:bg-gray-800 dark:border-gray-700">
@@ -74,9 +75,15 @@ export default function Features() {
               <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
                 <a href="#">Name</a>
               </h3>
-              <span className="text-gray-500 dark:text-gray-400">Ketua LPKA</span>
+              <span className="text-gray-500 dark:text-gray-400">
+                Ketua LPKA
+              </span>
               <p className="mt-3 mb-4 font-light text-gray-500 dark:text-gray-400">
-                  Ketua Lembaga Pengembangan Kompetensi Akademik (LPKA) yang memimpin dengan visi kuat untuk mengembangkan strategi akademik, membangun kolaborasi yang inovatif, serta memastikan tercapainya tujuan institusional melalui pendekatan yang berorientasi pada hasil dan pengembangan sumber daya manusia.
+                Ketua Lembaga Pengembangan Kompetensi Akademik (LPKA) yang
+                memimpin dengan visi kuat untuk mengembangkan strategi akademik,
+                membangun kolaborasi yang inovatif, serta memastikan tercapainya
+                tujuan institusional melalui pendekatan yang berorientasi pada
+                hasil dan pengembangan sumber daya manusia.
               </p>
               {/* <ul className="flex space-x-4 sm:mt-0">
                 <li>

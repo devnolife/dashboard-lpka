@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import Link from 'next/link'; // Import Link from next/link
 
 export default function Navbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -42,7 +43,7 @@ export default function Navbar() {
     >
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         {/* Logo */}
-        <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
+        <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <img src="image/logo-unismuh.png" className="h-8" alt="Flowbite Logo" />
           <span
             className={`self-center text-2xl font-semibold whitespace-nowrap ${
@@ -51,7 +52,7 @@ export default function Navbar() {
           >
             UNISMUH
           </span>
-        </a>
+        </Link>
 
         {/* Hamburger Button */}
         <button
@@ -86,15 +87,9 @@ export default function Navbar() {
         >
           <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0">
             <li>
-              <a
-                href="#"
-                className={`block py-2 px-3 md:p-0 ${
-                  isScrolled ? "text-gray-900" : "text-white"
-                } hover:text-gray-500`}
-                aria-current="page"
-              >
+              <Link href="/" className={`block py-2 px-3 md:p-0 ${isScrolled ? "text-gray-900" : "text-white"} hover:text-gray-500`} aria-current="page">
                 Home
-              </a>
+              </Link>
             </li>
             
             {/* About Us with Dropdown */}
@@ -110,7 +105,7 @@ export default function Navbar() {
                   className="w-2.5 h-2.5 ms-2.5"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
-                  viewBox="0 0 10 6"
+                  viewBox="0 10 6"
                 >
                   <path
                     stroke="currentColor"
@@ -124,10 +119,10 @@ export default function Navbar() {
               {openDropdown === "about" && (
                 <div className="absolute z-10 font-normal bg-white rounded-lg shadow w-44">
                   <ul className="py-2 text-sm text-gray-700">
-                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Prosedur Pelayanan LPKA</a></li>
-                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Struktur Organisasi</a></li>
-                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Pemimpin LPKA</a></li>
-                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Staff LPKA</a></li>
+                    <li><Link href="/AboutUs/ProsedurPelayananLPKA"><span className="block px-4 py-2 hover:bg-gray-100">Prosedur Pelayanan LPKA</span></Link></li>
+                    <li><Link href="/AboutUs/StrukturOrganisasi"><span className="block px-4 py-2 hover:bg-gray-100">Struktur Organisasi</span></Link></li>
+                    <li><Link href="/AboutUs/PemimpinLPKA"><span className="block px-4 py-2 hover:bg-gray-100">Pemimpin LPKA</span></Link></li>
+                    <li><Link href="#"><span className="block px-4 py-2 hover:bg-gray-100">Staff LPKA</span></Link></li>
                   </ul>
                 </div>
               )}
@@ -149,10 +144,10 @@ export default function Navbar() {
               {openDropdown === "informasi" && (
                 <div className="absolute z-10 font-normal bg-white rounded-lg shadow w-44">
                   <ul className="py-2 text-sm text-gray-700">
-                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Kompetisi Mahasiswa</a></li>
-                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Prestasi Mahasiswa</a></li>
-                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Fasilitas Mahasiswa</a></li>
-                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Alumni Awards</a></li>
+                    <li><Link href="#"><span className="block px-4 py-2 hover:bg-gray-100">Kompetisi Mahasiswa</span></Link></li>
+                    <li><Link href="#"><span className="block px-4 py-2 hover:bg-gray-100">Prestasi Mahasiswa</span></Link></li>
+                    <li><Link href="#"><span className="block px-4 py-2 hover:bg-gray-100">Fasilitas Mahasiswa</span></Link></li>
+                    <li><Link href="#"><span className="block px-4 py-2 hover:bg-gray-100">Alumni Awards</span></Link></li>
                   </ul>
                 </div>
               )}
@@ -174,12 +169,12 @@ export default function Navbar() {
               {openDropdown === "layanan" && (
                 <div className="absolute z-10 font-normal bg-white rounded-lg shadow w-44">
                   <ul className="py-2 text-sm text-gray-700">
-                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Layanan Konseling & Kesehatan</a></li>
-                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Informasi Beasiswa</a></li>
-                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Inkubator Startup dan Bisnis</a></li>
-                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Persiapan Karir</a></li>
-                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Penalaran Karir dan Kreativitas Mahasiswa</a></li>
-                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Pengembangan Minat dan Bakat Mahasiswa</a></li>
+                    <li><Link href="#"><span className="block px-4 py-2 hover:bg-gray-100">Layanan Konseling & Kesehatan</span></Link></li>
+                    <li><Link href="#"><span className="block px-4 py-2 hover:bg-gray-100">Informasi Beasiswa</span></Link></li>
+                    <li><Link href="#"><span className="block px-4 py-2 hover:bg-gray-100">Inkubator Startup dan Bisnis</span></Link></li>
+                    <li><Link href="#"><span className="block px-4 py-2 hover:bg-gray-100">Persiapan Karir</span></Link></li>
+                    <li><Link href="#"><span className="block px-4 py-2 hover:bg-gray-100">Penalaran Karir dan Kreativitas Mahasiswa</span></Link></li>
+                    <li><Link href="#"><span className="block px-4 py-2 hover:bg-gray-100">Pengembangan Minat dan Bakat Mahasiswa</span></Link></li>
                   </ul>
                 </div>
               )}
@@ -201,9 +196,9 @@ export default function Navbar() {
               {openDropdown === "kuesioner" && (
                 <div className="absolute z-10 font-normal bg-white rounded-lg shadow w-44">
                   <ul className="py-2 text-sm text-gray-700">
-                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Kepuasan Pengguna Lulusan</a></li>
-                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Kepuasan Layanan</a></li>
-                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Tracer Study</a></li>
+                    <li><Link href="#"><span className="block px-4 py-2 hover:bg-gray-100">Kepuasan Pengguna Lulusan</span></Link></li>
+                    <li><Link href="#"><span className="block px-4 py-2 hover:bg-gray-100">Kepuasan Layanan</span></Link></li>
+                    <li><Link href="#"><span className="block px-4 py-2 hover:bg-gray-100">Tracer Study</span></Link></li>
                   </ul>
                 </div>
               )}
@@ -225,11 +220,16 @@ export default function Navbar() {
               {openDropdown === "dokumen" && (
                 <div className="absolute z-10 font-normal bg-white rounded-lg shadow w-44">
                   <ul className="py-2 text-sm text-gray-700">
-                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Policies</a></li>
-                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Guidelines</a></li>
+                    <li><Link href="#"><span className="block px-4 py-2 hover:bg-gray-100">Policies</span></Link></li>
+                    <li><Link href="#"><span className="block px-4 py-2 hover:bg-gray-100">Guidelines</span></Link></li>
                   </ul>
                 </div>
               )}
+            </li>
+            <li>
+              <Link href="/VisiMisi" className={`block py-2 px-3 md:p-0 ${isScrolled ? "text-gray-900" : "text-white"} hover:text-gray-500`} aria-current="page">
+                Visi Misi
+              </Link>
             </li>
 
             {/* Language Selector */}
